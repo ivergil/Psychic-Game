@@ -5,8 +5,7 @@ var left = 9;
 var choice = [];
 
 var r = Math.floor((Math.random() * 26) + 1);
-document.write(abc[r]);
-var newDiv = $("<div>");
+// document.write(abc[r]);
 
 document.onkeyup = function(event){
     var random = abc[r];
@@ -19,6 +18,9 @@ document.onkeyup = function(event){
         left = 9;
         document.getElementById("left").innerHTML = "Guesses left: " + left;
         choice = [];
+        document.getElementById("choice").innerHTML = "Your guesses so far: ";
+        r = Math.floor((Math.random() * 26) + 1);
+        // console.log(abc[r]);
     }
     else {
         
@@ -29,15 +31,20 @@ document.onkeyup = function(event){
             }
         }
     }    
-    if(!doble && letter !== random){    
-        losses++;
-        document.getElementById("losses").innerHTML = "Losses: " + losses;
+    if(!doble && letter !== random ){    
         left--;
         document.getElementById("left").innerHTML = "Guesses left: " + left;
         choice.push(letter);
         document.getElementById("choice").innerHTML += " " + letter;
     }
-    
-    console.log(choice);
-    
+    if(left == 0){
+        losses++;
+        document.getElementById("losses").innerHTML = "Losses: " + losses;
+        left = 9;
+        document.getElementById("left").innerHTML = "Guesses left: " + left;
+        choice = [];
+        document.getElementById("choice").innerHTML = "Your guesses so far: ";
+        r = Math.floor((Math.random() * 26) + 1);
+        // console.log(abc[r]);
+    }
 }
