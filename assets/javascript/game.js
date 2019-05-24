@@ -7,11 +7,11 @@ var choice = [];
 var r = Math.floor((Math.random() * 26) + 1);
 
 document.onkeyup = function(event){
-    var random = abc[r];
+    
     var letter = event.key.toLowerCase();
     var doble = false;
-
-    if(letter == random) {
+    var random = abc[r];
+    if(letter == random) { // WIN!!!
         wins++;
         document.getElementById("wins").innerHTML = "Wins: " + wins;
         left = 9;
@@ -30,13 +30,13 @@ document.onkeyup = function(event){
             }
         }
     }    
-    if(!doble && letter !== random ){    
+    if(!doble && letter !== random ){    // FAIL
         left--;
         document.getElementById("left").innerHTML = "Guesses left: " + left;
         choice.push(letter);
         document.getElementById("choice").innerHTML += " " + letter;
     }
-    if(left == 0){
+    if(left == 0){ // LOST
         losses++;
         document.getElementById("losses").innerHTML = "Losses: " + losses;
         left = 9;
@@ -60,6 +60,11 @@ resetBtn.addEventListener("click",function(){
     document.getElementById("left").innerHTML = "Guesses left: " + left;
     document.getElementById("choice").innerHTML = "Your guesses so far: ";
     
+});
+
+var showBtn = document.getElementById("answer");
+showBtn.addEventListener("click",function(){
+    alert("The correct Answer is: " + abc[r]);
 });
 // $(document).ready(function() {
 
