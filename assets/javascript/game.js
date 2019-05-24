@@ -48,3 +48,24 @@ document.onkeyup = function(event){
         // console.log(abc[r]);
     }
 }
+
+var resetBtn = document.getElementById("reset");
+resetBtn.addEventListener("click",function(){
+
+    wins = 0;
+    losses = 0;
+    left = 9;
+    choice = [];
+    document.getElementById("wins").innerHTML = "Wins: ";
+    document.getElementById("losses").innerHTML = "Losses: ";
+    document.getElementById("left").innerHTML = "Guesses left: " + left;
+    document.getElementById("choice").innerHTML = "Your guesses so far: ";
+    
+});
+// $(document).ready(function() {
+
+//     $("#reset").on("click", function() {
+//         alert("I've been clicked!");
+//       });
+
+// });
