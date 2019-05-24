@@ -5,7 +5,6 @@ var left = 9;
 var choice = [];
 
 var r = Math.floor((Math.random() * 26) + 1);
-// document.write(abc[r]);
 
 document.onkeyup = function(event){
     var random = abc[r];
