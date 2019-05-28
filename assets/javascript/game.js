@@ -20,6 +20,7 @@ document.onkeyup = function(event){
         document.getElementById("choice").innerHTML = "Your guesses so far: ";
         r = Math.floor((Math.random() * 26) + 1);
         // console.log(abc[r]);
+        alert("You've won!!!")
     }
     else {
         
@@ -36,7 +37,7 @@ document.onkeyup = function(event){
         choice.push(letter);
         document.getElementById("choice").innerHTML += " " + letter;
     }
-    if(left == 0){ // LOST
+    if(left <= 0){ // LOST
         losses++;
         document.getElementById("losses").innerHTML = "Losses: " + losses;
         left = 9;
@@ -44,6 +45,7 @@ document.onkeyup = function(event){
         choice = [];
         document.getElementById("choice").innerHTML = "Your guesses so far: ";
         r = Math.floor((Math.random() * 26) + 1);
+        alert("You've lost");
         // console.log(abc[r]);
     }
 }
